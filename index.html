@@ -5,6 +5,9 @@
   <title>BrightPages Kids — Children’s Books & Printables</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Meta for SEO -->
+  <meta name="description" content="BrightPages Kids is a children’s book hub for parents, teachers and indie authors. Discover kids’ books, printables, activity packs and story ideas." />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,6 +46,7 @@
       background: radial-gradient(circle at top left, #ffe4d4 0, #fdfaf5 35%, #f7f1ff 100%);
       color: var(--text-main);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     img {
@@ -74,7 +78,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(14px);
-      background: rgba(253, 250, 245, 0.85);
+      background: rgba(253, 250, 245, 0.92);
       border-bottom: 1px solid rgba(227, 225, 234, 0.9);
     }
 
@@ -82,7 +86,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
+      padding: 0.5rem 0;
       gap: 1rem;
     }
 
@@ -116,6 +120,12 @@
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-top: -4px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
     }
 
     nav ul {
@@ -154,6 +164,55 @@
       gap: 0.6rem;
     }
 
+    .nav-toggle {
+      display: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: #fff;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: #444;
+      position: relative;
+    }
+
+    .nav-toggle span::before {
+      position: absolute;
+      top: -5px;
+    }
+
+    .nav-toggle span::after {
+      position: absolute;
+      top: 5px;
+    }
+
+    .nav-toggle.active span {
+      background: transparent;
+    }
+
+    .nav-toggle.active span::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .nav-toggle.active span::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    /* Buttons */
     .btn,
     button {
       border-radius: 999px;
@@ -194,14 +253,19 @@
       transform: translateY(-1px);
     }
 
+    .btn-sm {
+      padding: 0.3rem 0.8rem;
+      font-size: 0.78rem;
+    }
+
     /* Hero */
     .hero {
-      padding: 2.8rem 0 2.2rem;
+      padding: 2.4rem 0 2.2rem;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 2.2rem;
       align-items: center;
     }
@@ -266,6 +330,7 @@
       font-size: 0.78rem;
       color: #775300;
       margin-top: 0.45rem;
+      margin-bottom: 0.35rem;
     }
 
     .hero-visual-card {
@@ -386,10 +451,6 @@
       padding: 2.4rem 0;
     }
 
-    section:nth-of-type(odd) {
-      /* Light card feel for alternating sections */
-    }
-
     .section-header {
       display: flex;
       align-items: baseline;
@@ -450,6 +511,8 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.4rem;
     }
 
     .pill {
@@ -516,7 +579,7 @@
 
     /* Submit Book */
     #submit-book {
-      background: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.9);
       border-bottom: 1px solid rgba(227,225,234,0.9);
     }
 
@@ -575,7 +638,7 @@
 
     /* Freebies */
     #freebies {
-      background: rgba(255, 246, 221, 0.6);
+      background: rgba(255, 246, 221, 0.85);
       border-bottom: 1px solid rgba(227,225,234,0.9);
     }
 
@@ -627,6 +690,7 @@
       box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
+      font-size: 3.4rem;
     }
 
     .about-avatar::after {
@@ -708,22 +772,28 @@
     footer {
       background: #17151f;
       color: #d0cfe5;
-      padding: 1.2rem 0 1.4rem;
+      padding: 1.4rem 0 1.6rem;
+      margin-top: auto;
     }
 
     .footer-inner {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 1.25rem;
       font-size: 0.8rem;
+    }
+
+    .footer-col-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
     }
 
     .footer-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      flex-direction: column;
+      gap: 0.25rem;
     }
 
     .footer-links a {
@@ -733,6 +803,41 @@
 
     .footer-links a:hover {
       opacity: 1;
+    }
+
+    .footer-bottom {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      border-top: 1px solid rgba(97, 94, 126, 0.7);
+      padding-top: 0.6rem;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      right: 1.4rem;
+      bottom: 1.4rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 22px rgba(0,0,0,0.25);
+      cursor: pointer;
+      z-index: 120;
+    }
+
+    .back-to-top.show {
+      display: flex;
     }
 
     /* Responsive */
@@ -756,23 +861,45 @@
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 768px) {
+      .nav-cta {
+        display: none;
+      }
+
       nav ul {
-        display: none; /* simple: hide menu on very small screens (can add burger later) */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(253,250,245,0.98);
+        border-bottom: 1px solid rgba(227,225,234,0.9);
+        flex-direction: column;
+        padding: 0.6rem 1.25rem 0.9rem;
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: flex;
       }
 
       .hero-title {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .card-grid,
+      .freebies-list {
+        grid-template-columns: minmax(0,1fr);
       }
 
       .section-header {
         flex-direction: column;
         align-items: flex-start;
-      }
-
-      .card-grid,
-      .freebies-list {
-        grid-template-columns: minmax(0,1fr);
       }
 
       .newsletter-form-row {
@@ -797,13 +924,17 @@
         </a>
 
         <nav aria-label="Main navigation">
-          <ul>
+          <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+          </button>
+          <ul id="main-menu">
             <li><a href="#kids-books">Kids Books</a></li>
             <li><a href="#shop">Shop</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#submit-book">Submit Book</a></li>
             <li><a href="#freebies">Freebies</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
 
@@ -876,7 +1007,7 @@
       </div>
     </section>
 
-    <!-- Featured Section (quick overview) -->
+    <!-- Featured Section -->
     <section id="featured">
       <div class="container">
         <div class="section-header">
@@ -897,7 +1028,7 @@
             </p>
             <div class="card-footer">
               <span class="pill">Ages 4–7</span>
-              <a href="#kids-books" class="btn btn-outline" style="padding:0.3rem 0.8rem;font-size:0.78rem;">View details</a>
+              <a href="#kids-books" class="btn btn-outline btn-sm">View details</a>
             </div>
           </article>
 
@@ -909,7 +1040,7 @@
             </p>
             <div class="card-footer">
               <span class="pill price-pill">$7 · Instant download</span>
-              <a href="#shop" class="btn btn-outline" style="padding:0.3rem 0.8rem;font-size:0.78rem;">Go to shop</a>
+              <a href="#shop" class="btn btn-outline btn-sm">Go to shop</a>
             </div>
           </article>
 
@@ -921,7 +1052,7 @@
             </p>
             <div class="card-footer">
               <span class="pill">Article · 10 min read</span>
-              <a href="#blog" class="btn btn-outline" style="padding:0.3rem 0.8rem;font-size:0.78rem;">Read on the blog</a>
+              <a href="#blog" class="btn btn-outline btn-sm">Read on the blog</a>
             </div>
           </article>
         </div>
@@ -942,19 +1073,20 @@
         </div>
 
         <div class="filters-row">
-          <button class="filter-chip active" type="button">All</button>
-          <button class="filter-chip" type="button">Ages 3–5</button>
-          <button class="filter-chip" type="button">Ages 6–8</button>
-          <button class="filter-chip" type="button">Ages 9–12</button>
-          <button class="filter-chip" type="button">Picture Books</button>
-          <button class="filter-chip" type="button">Chapter Books</button>
-          <button class="filter-chip" type="button">Activity / Workbooks</button>
-          <button class="filter-chip" type="button">Faith-based</button>
+          <button class="filter-chip active" type="button" data-filter="All">All</button>
+          <button class="filter-chip" type="button" data-filter="Ages 3–5">Ages 3–5</button>
+          <button class="filter-chip" type="button" data-filter="Ages 6–8">Ages 6–8</button>
+          <button class="filter-chip" type="button" data-filter="Ages 9–12">Ages 9–12</button>
+          <button class="filter-chip" type="button" data-filter="Picture Books">Picture Books</button>
+          <button class="filter-chip" type="button" data-filter="Chapter Books">Chapter Books</button>
+          <button class="filter-chip" type="button" data-filter="Activity">Activity / Workbooks</button>
+          <button class="filter-chip" type="button" data-filter="Faith-based">Faith-based</button>
         </div>
 
-        <div class="card-grid">
+        <div class="card-grid" id="books-grid">
           <!-- Book Card 1 -->
-          <article class="card">
+          <article class="card book-card"
+                   data-tags="Ages 4–7, Ages 3–5, Picture Books">
             <div class="card-tag">Picture Book</div>
             <h3 class="card-title">Luna & the Cloud Parade</h3>
             <p class="card-meta">
@@ -963,14 +1095,15 @@
             <div class="card-footer">
               <span class="pill">Ages 4–7</span>
               <div>
-                <a href="#" class="btn btn-outline" style="padding:0.25rem 0.7rem;font-size:0.78rem;">Preview</a>
-                <a href="#" class="btn btn-primary" style="padding:0.25rem 0.7rem;font-size:0.78rem;margin-left:0.2rem;">Buy ebook</a>
+                <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                <a href="#" class="btn btn-primary btn-sm">Buy ebook</a>
               </div>
             </div>
           </article>
 
           <!-- Book Card 2 -->
-          <article class="card">
+          <article class="card book-card"
+                   data-tags="Ages 6–8, Activity, Activity / Workbooks">
             <div class="card-tag">Activity Book</div>
             <h3 class="card-title">Rainy Day Adventure Workbook</h3>
             <p class="card-meta">
@@ -979,14 +1112,15 @@
             <div class="card-footer">
               <span class="pill">Printables · PDF</span>
               <div>
-                <a href="#" class="btn btn-outline" style="padding:0.25rem 0.7rem;font-size:0.78rem;">Preview</a>
-                <a href="#" class="btn btn-primary" style="padding:0.25rem 0.7rem;font-size:0.78rem;margin-left:0.2rem;">Download</a>
+                <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                <a href="#" class="btn btn-primary btn-sm">Download</a>
               </div>
             </div>
           </article>
 
           <!-- Book Card 3 -->
-          <article class="card">
+          <article class="card book-card"
+                   data-tags="Ages 8–11, Chapter Books, STEM">
             <div class="card-tag">Chapter Book</div>
             <h3 class="card-title">The Secret STEM Club</h3>
             <p class="card-meta">
@@ -995,8 +1129,59 @@
             <div class="card-footer">
               <span class="pill">Ages 8–11</span>
               <div>
-                <a href="#" class="btn btn-outline" style="padding:0.25rem 0.7rem;font-size:0.78rem;">Preview</a>
-                <a href="#" class="btn btn-primary" style="padding:0.25rem 0.7rem;font-size:0.78rem;margin-left:0.2rem;">Amazon</a>
+                <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                <a href="#" class="btn btn-primary btn-sm">Amazon</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book Card 4 -->
+          <article class="card book-card"
+                   data-tags="Ages 3–5, Faith-based, Picture Books">
+            <div class="card-tag">Picture Book</div>
+            <h3 class="card-title">Little Lights of Hope</h3>
+            <p class="card-meta">
+              A faith-based story about tiny lanterns that teach children about kindness, gratitude and trust.
+            </p>
+            <div class="card-footer">
+              <span class="pill">Ages 3–5</span>
+              <div>
+                <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                <a href="#" class="btn btn-primary btn-sm">Buy ebook</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book Card 5 -->
+          <article class="card book-card"
+                   data-tags="Ages 6–8, Activity, Activity / Workbooks, STEM">
+            <div class="card-tag">Activity Book</div>
+            <h3 class="card-title">Space Quest Puzzle Pack</h3>
+            <p class="card-meta">
+              Space-themed puzzles, codes and mini-comics that turn curious kids into little explorers.
+            </p>
+            <div class="card-footer">
+              <span class="pill">Ages 6–8</span>
+              <div>
+                <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                <a href="#" class="btn btn-primary btn-sm">Download</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book Card 6 -->
+          <article class="card book-card"
+                   data-tags="Ages 9–12, Chapter Books, Adventure">
+            <div class="card-tag">Chapter Book</div>
+            <h3 class="card-title">The Map of Whispering Woods</h3>
+            <p class="card-meta">
+              Three friends follow a mysterious map into a forest of talking trees, secret doors and brave choices.
+            </p>
+            <div class="card-footer">
+              <span class="pill">Ages 9–12</span>
+              <div>
+                <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                <a href="#" class="btn btn-primary btn-sm">Amazon</a>
               </div>
             </div>
           </article>
@@ -1026,7 +1211,7 @@
             </p>
             <div class="card-footer">
               <span class="pill price-pill">$19 · Bundle</span>
-              <a href="#" class="btn btn-primary" style="padding:0.3rem 0.9rem;font-size:0.8rem;">Add to cart</a>
+              <a href="#" class="btn btn-primary btn-sm">Add to cart</a>
             </div>
           </article>
 
@@ -1038,7 +1223,7 @@
             </p>
             <div class="card-footer">
               <span class="pill price-pill">$7 · PDF</span>
-              <a href="#" class="btn btn-primary" style="padding:0.3rem 0.9rem;font-size:0.8rem;">Download</a>
+              <a href="#" class="btn btn-primary btn-sm">Download</a>
             </div>
           </article>
 
@@ -1050,7 +1235,7 @@
             </p>
             <div class="card-footer">
               <span class="pill price-pill">$15 · Commercial use</span>
-              <a href="#" class="btn btn-primary" style="padding:0.3rem 0.9rem;font-size:0.8rem;">Get template</a>
+              <a href="#" class="btn btn-primary btn-sm">Get template</a>
             </div>
           </article>
         </div>
@@ -1079,7 +1264,7 @@
             </p>
             <div class="card-footer">
               <span class="pill">Guide · 7 min read</span>
-              <a href="#" class="btn btn-outline" style="padding:0.25rem 0.7rem;font-size:0.78rem;">Read article</a>
+              <a href="#" class="btn btn-outline btn-sm">Read article</a>
             </div>
           </article>
 
@@ -1091,7 +1276,7 @@
             </p>
             <div class="card-footer">
               <span class="pill">Ages 4–8</span>
-              <a href="#" class="btn btn-outline" style="padding:0.25rem 0.7rem;font-size:0.78rem;">See the list</a>
+              <a href="#" class="btn btn-outline btn-sm">See the list</a>
             </div>
           </article>
 
@@ -1100,4 +1285,379 @@
             <h3 class="card-title">Coming Up with Kids’ Book Ideas That Actually Sell</h3>
             <p class="card-meta">
               A simple framework to choose topics parents need, kids enjoy and you love writing about.
-            </p
+            </p>
+            <div class="card-footer">
+              <span class="pill">For Kids’ Authors</span>
+              <a href="#" class="btn btn-outline btn-sm">Read guide</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submit Book -->
+    <section id="submit-book">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Submit Your Kids’ Book</h2>
+            <p class="section-subtitle">
+              Indie authors are welcome. Submit your children’s book for a chance to be featured in our library and blog.
+            </p>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <form id="submit-book-form">
+            <div>
+              <label for="author-name">Author name *</label>
+              <input type="text" id="author-name" name="author-name" required />
+            </div>
+            <div>
+              <label for="author-email">Email *</label>
+              <input type="email" id="author-email" name="author-email" required />
+              <p class="helper-text">We’ll only use this to contact you about your submission.</p>
+            </div>
+            <div>
+              <label for="book-title">Book title *</label>
+              <input type="text" id="book-title" name="book-title" required />
+            </div>
+            <div>
+              <label for="book-age">Target age group *</label>
+              <select id="book-age" name="book-age" required>
+                <option value="">Select age range</option>
+                <option value="3-5">Ages 3–5</option>
+                <option value="6-8">Ages 6–8</option>
+                <option value="9-12">Ages 9–12</option>
+              </select>
+            </div>
+            <div>
+              <label for="book-link">Book sales link (Amazon / website) *</label>
+              <input type="url" id="book-link" name="book-link" required />
+            </div>
+            <div>
+              <label for="book-description">Short description *</label>
+              <textarea id="book-description" name="book-description" required></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Send submission</button>
+            </div>
+          </form>
+
+          <div>
+            <h3 class="section-title" style="font-size:1.05rem;">How it works</h3>
+            <p class="helper-text" style="margin-top:0.4rem;">
+              We review each submission manually to keep the library safe and high-quality for kids.
+            </p>
+            <ul class="contact-info" style="margin-top:0.7rem;">
+              <li>✔️ Clean, kid-safe themes only</li>
+              <li>✔️ Picture books, early readers, chapter books, activity books</li>
+              <li>✔️ English language (more languages coming soon)</li>
+            </ul>
+            <p class="helper-text" style="margin-top:0.5rem;">
+              If selected, your book may appear in the <strong>Kids Books Library</strong>, in themed blog posts,
+              and in our newsletter book roundups.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Freebies -->
+    <section id="freebies">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Freebies for Kids & Parents</h2>
+            <p class="section-subtitle">
+              Download sample pages, activity sheets and printables to try before you buy.
+            </p>
+          </div>
+          <a href="#newsletter" class="btn btn-outline">Get all freebies by email</a>
+        </div>
+
+        <div class="freebies-list">
+          <article class="freebie-card">
+            <h4>Free Coloring Pages Sampler</h4>
+            <p>
+              5 pages of cute animals and adventure scenes to print and color at home.
+            </p>
+            <span class="pill">PDF · Instant download</span>
+          </article>
+
+          <article class="freebie-card">
+            <h4>Bedtime Story Checklist</h4>
+            <p>
+              A simple one-page checklist to make your bedtime reading routine calm and consistent.
+            </p>
+            <span class="pill">Printable · A4 / US Letter</span>
+          </article>
+
+          <article class="freebie-card">
+            <h4>Story Starter Prompts for Kids</h4>
+            <p>
+              10 “What if…” prompts that help children imagine, draw and write their own stories.
+            </p>
+            <span class="pill">For Ages 6–10</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">About BrightPages Kids</h2>
+            <p class="section-subtitle">
+              A small, independent space created by a children’s book lover and KDP publisher.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-wrapper">
+          <div class="about-text">
+            <p>
+              BrightPages Kids was created to bring together beautiful stories, practical printables and
+              fresh ideas for children’s books in one friendly place.
+            </p>
+            <p>
+              Here you’ll find my own picture books, activity books and KDP interiors, plus curated
+              recommendations from other indie authors who care about quality and kid-safe content.
+            </p>
+            <p>
+              Whether you’re a parent, teacher or writer, I hope this site helps you discover new
+              stories, spark creativity and make reading time the best part of the day.
+            </p>
+            <a href="#contact" class="btn btn-outline btn-sm" style="margin-top:0.4rem;">Collaborations & questions</a>
+          </div>
+
+          <div class="about-avatar" aria-hidden="true">
+            📚
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter">
+      <div class="container">
+        <div class="newsletter-inner">
+          <div>
+            <h2 class="section-title">Get New Books & Printables in Your Inbox</h2>
+            <p class="section-subtitle" style="margin-top:0.2rem;">
+              One or two emails per month with new kids’ books, free printables and ideas for authors.
+            </p>
+          </div>
+          <form id="newsletter-form">
+            <div class="newsletter-form-row">
+              <input type="email" name="newsletter-email" placeholder="Your email address" required />
+              <button type="submit" class="btn btn-primary">Join newsletter</button>
+            </div>
+            <p class="helper-text" style="margin-top:0.3rem;">
+              No spam. Unsubscribe anytime.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">
+              For collaboration, review requests or questions about your order, send a message below.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <form id="contact-form">
+            <div>
+              <label for="contact-name">Name *</label>
+              <input type="text" id="contact-name" name="contact-name" required />
+            </div>
+            <div>
+              <label for="contact-email">Email *</label>
+              <input type="email" id="contact-email" name="contact-email" required />
+            </div>
+            <div>
+              <label for="contact-topic">Topic *</label>
+              <select id="contact-topic" name="contact-topic" required>
+                <option value="">Select a topic</option>
+                <option value="general">General question</option>
+                <option value="author">Author / submission</option>
+                <option value="order">Order / download issue</option>
+              </select>
+            </div>
+            <div>
+              <label for="contact-message">Message *</label>
+              <textarea id="contact-message" name="contact-message" required></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Send message</button>
+            </div>
+          </form>
+
+          <div class="contact-info">
+            <p>
+              Prefer email? You can also reach us directly:
+            </p>
+            <ul>
+              <li><strong>Email:</strong> hello@brightpageskids.com</li>
+              <li><strong>Instagram:</strong> @brightpageskids</li>
+              <li><strong>Location:</strong> Online · serving readers worldwide</li>
+            </ul>
+            <p style="margin-top:0.6rem;" class="helper-text">
+              Response time is usually within 1–2 business days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-col-title">BrightPages Kids</div>
+          <p style="max-width:260px;">
+            A kids’ books and printables hub curated by an independent author and KDP publisher.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Quick links</div>
+          <div class="footer-links">
+            <a href="#kids-books">Kids Books</a>
+            <a href="#shop">Shop</a>
+            <a href="#blog">Blog</a>
+            <a href="#freebies">Freebies</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Popular picks</div>
+          <div class="footer-links">
+            <a href="#kids-books">Bedtime stories (Ages 3–5)</a>
+            <a href="#kids-books">Activity books (Ages 6–8)</a>
+            <a href="#kids-books">Chapter books (Ages 9–12)</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Site info</div>
+          <div class="footer-links">
+            <a href="#">Submission guidelines</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms & conditions</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> BrightPages Kids. All rights reserved.</span>
+        <span>Some book links may be affiliate links at no extra cost to you.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+</div>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.querySelector(".nav-toggle");
+  const mainMenu = document.getElementById("main-menu");
+
+  navToggle.addEventListener("click", () => {
+    navToggle.classList.toggle("active");
+    mainMenu.classList.toggle("show");
+  });
+
+  // Close mobile menu on link click
+  mainMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        navToggle.classList.remove("active");
+        mainMenu.classList.remove("show");
+      }
+    });
+  });
+
+  // Smooth scroll (extra safety in case browser doesn't default)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href").slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 70;
+        window.scrollTo({ top: offsetTop, behavior: "smooth" });
+      }
+    });
+  });
+
+  // Book filter logic
+  const filterChips = document.querySelectorAll(".filter-chip");
+  const bookCards = document.querySelectorAll(".book-card");
+
+  filterChips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const filter = chip.dataset.filter;
+
+      filterChips.forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+
+      bookCards.forEach(card => {
+        const tags = card.dataset.tags || "";
+        if (filter === "All") {
+          card.style.display = "";
+        } else {
+          card.style.display = tags.includes(filter) ? "" : "none";
+        }
+      });
+    });
+  });
+
+  // Demo form handling (prevent real submit)
+  function attachDemoHandler(formId, message) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert(message);
+      form.reset();
+    });
+  }
+
+  attachDemoHandler("submit-book-form", "Thank you! Your kids’ book submission has been received (demo).");
+  attachDemoHandler("newsletter-form", "You’re on the list! (demo) Remember to connect a real email service.");
+  attachDemoHandler("contact-form", "Thanks for reaching out! We’ll get back to you (demo).");
+
+  // Back to top button logic
+  const backToTop = document.getElementById("back-to-top");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Dynamic year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
